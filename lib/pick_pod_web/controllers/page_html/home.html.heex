@@ -1,141 +1,200 @@
 <!-- Navigation -->
-<nav class="apple-nav">
-  <div class="apple-container">
-    <div class="container">
-      <h1 style="font-weight: 600; font-size: 18px;">PickPod</h1>
-      <ul class="apple-nav-links">
-        <li><a href="#product">Product</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="#buy">Buy</a></li>
-      </ul>
-    </div>
+<nav class="nav" id="navbar">
+  <div class="container">
+    <a href="/" class="nav-logo">PickPod</a>
+    <ul class="nav-links">
+      <li><a href="#product">Product</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="#notify">Pre-Order</a></li>
+    </ul>
   </div>
 </nav>
 
 <!-- Hero Section -->
 <section class="hero">
-  <div class="apple-container" style="padding: 60px 20px;">
-    <h1 class="apple-headline" style="margin-bottom: 24px;">
-      Floss on the go.<br>Never miss a beat.
-    </h1>
-    <p class="apple-subheadline" style="margin-bottom: 40px;">
-      The dual-chamber car floss pick dispenser that keeps your smile fresh wherever you drive.
-    </p>
-    <div style="display: flex; gap: 16px; justify-content: center;">
-      <a href="#buy" class="apple-button">Buy Now</a>
-      <a href="#learn-more" class="apple-button apple-button-outline">Learn More</a>
+  <div class="hero-bg">
+    <img src="/images/pickpod-product.png" alt="PickPod Product">
+  </div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div class="container">
+      <span class="label">Introducing PickPod</span>
+      <h1 class="headline-xl mb-4">
+        Floss on the go.<br>Never miss a beat.
+      </h1>
+      <p class="subheadline mb-6" style="max-width: 500px; color: rgba(255,255,255,0.7);">
+        The dual-chamber car floss pick dispenser designed for life in motion.
+      </p>
+      <div style="display: flex; gap: 1rem;">
+        <a href="#notify" class="btn btn-primary">Pre-Order Now</a>
+        <a href="#product" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: white;">Discover</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Problem Section -->
-<section class="apple-section" style="background: white;">
-  <div class="apple-container" style="text-align: center;">
-    <h2 class="apple-headline" style="font-size: 48px; margin-bottom: 20px;">
+<section id="product" class="section-lg">
+  <div class="container text-center">
+    <span class="label">The Problem</span>
+    <h2 class="headline-lg mb-4">
       The flossing problem<br>everyone ignores.
     </h2>
-    <p class="apple-subheadline" style="max-width: 700px; margin: 0 auto 60px;">
-      You know you should floss after meals. But carrying floss picks in your car? They end up everywhere. Messy. Inconvenient. Forgotten.
+    <div class="divider divider-center"></div>
+    <p class="body-lg text-muted" style="max-width: 600px; margin: 0 auto;">
+      You know you should floss after meals. But carrying floss picks in your car?
+      They end up everywhere. Messy. Inconvenient. Forgotten.
     </p>
   </div>
 </section>
 
-<!-- Solution Section -->
-<section class="apple-section" style="background: var(--apple-gray-light);">
-  <div class="apple-container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-      <div>
-        <h2 class="apple-headline" style="font-size: 40px; margin-bottom: 20px;">
-          Organized.<br>Accessible.<br>Brilliant.
-        </h2>
-        <p class="apple-body" style="margin-bottom: 20px;">
-          PickPod mounts seamlessly in your car, keeping fresh floss picks exactly where you need them. Two chambers. One for fresh picks, one for used. Clean, simple, smart.
-        </p>
-        <p class="apple-body" style="color: var(--apple-gray);">
-          Designed for life on the road.
-        </p>
-      </div>
-      <div style="height: 400px; border-radius: 18px; display: flex; align-items: center; justify-content: center; padding: 40px;">
-        <img src="/images/pickpod-product.png" alt="PickPod Product" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-      </div>
-    </div>
+<!-- Solution Split Section -->
+<section class="split">
+  <div class="split-image" style="background: var(--color-light-gray);">
+    <img src="/images/pickpod-product.png" alt="PickPod Product" style="object-fit: contain; padding: 4rem;">
+  </div>
+  <div class="split-content" style="background: var(--color-dark); color: var(--color-white);">
+    <span class="label" style="color: var(--color-medium-gray);">The Solution</span>
+    <h2 class="headline-md mb-4">
+      Organized.<br>Accessible.<br>Brilliant.
+    </h2>
+    <div class="divider"></div>
+    <p class="body-lg mb-4" style="color: rgba(255,255,255,0.7);">
+      PickPod mounts seamlessly in your car, keeping fresh floss picks exactly where you need them.
+    </p>
+    <p class="body-base" style="color: rgba(255,255,255,0.5);">
+      Two chambers. One for fresh picks, one for used. Clean, simple, smart.
+    </p>
   </div>
 </section>
 
 <!-- Features Section -->
-<section id="features" class="apple-section" style="background: white;">
-  <div class="apple-container">
-    <h2 class="apple-headline" style="font-size: 48px; text-align: center; margin-bottom: 60px;">
-      Every detail matters.
-    </h2>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
-      <div class="apple-card">
-        <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 12px;">Dual Chamber</h3>
-        <p class="apple-body">Separate compartments for fresh and used picks. Stay organized, stay clean.</p>
-      </div>
-      <div class="apple-card">
-        <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 12px;">Easy Mount</h3>
-        <p class="apple-body">Installs in seconds. Fits any car interior. No tools required.</p>
-      </div>
-      <div class="apple-card">
-        <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 12px;">Premium Design</h3>
-        <p class="apple-body">Sleek, minimal aesthetics that complement your car's interior.</p>
-      </div>
+<section id="features" class="section-light">
+  <div class="container text-center mb-6">
+    <span class="label">Features</span>
+    <h2 class="headline-lg">Every detail matters.</h2>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-item">
+      <span class="feature-number">01</span>
+      <h3 class="feature-title">Dual Chamber</h3>
+      <p class="body-sm text-muted">
+        Separate compartments for fresh and used picks. Stay organized, stay clean.
+      </p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-number">02</span>
+      <h3 class="feature-title">Easy Mount</h3>
+      <p class="body-sm text-muted">
+        Installs in seconds. Fits any car interior. No tools required.
+      </p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-number">03</span>
+      <h3 class="feature-title">Premium Design</h3>
+      <p class="body-sm text-muted">
+        Sleek, minimal aesthetics that complement your car's interior.
+      </p>
     </div>
   </div>
 </section>
 
 <!-- How It Works -->
-<section class="apple-section" style="background: var(--apple-gray-light);">
-  <div class="apple-container" style="text-align: center;">
-    <h2 class="apple-headline" style="font-size: 48px; margin-bottom: 60px;">
-      Simple by design.
-    </h2>
-    <div style="max-width: 1000px; margin: 0 auto;">
-      <img src="/images/pickpod-how-to-use.png" alt="How to use PickPod" style="width: 100%; height: auto;">
+<section class="split" style="min-height: auto;">
+  <div class="split-content" style="padding: 6rem 4rem;">
+    <span class="label">How It Works</span>
+    <h2 class="headline-md mb-4">Simple by design.</h2>
+    <div class="divider"></div>
+    <div class="mb-4">
+      <p class="body-base mb-3"><strong style="color: var(--color-accent);">1.</strong> Mount PickPod to your preferred location</p>
+      <p class="body-base mb-3"><strong style="color: var(--color-accent);">2.</strong> Fill the fresh chamber with floss picks</p>
+      <p class="body-base mb-3"><strong style="color: var(--color-accent);">3.</strong> Use and dispose in the used chamber</p>
+      <p class="body-base"><strong style="color: var(--color-accent);">4.</strong> Empty and refill as needed</p>
     </div>
+  </div>
+  <div class="split-image" style="background: var(--color-light-gray); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+    <img src="/images/pickpod-how-to-use.png" alt="How to use PickPod" style="max-width: 100%; max-height: 100%; object-fit: contain;">
   </div>
 </section>
 
 <!-- CTA Section -->
-<section id="buy" class="apple-section" style="background: var(--apple-dark); color: white; text-align: center;">
-  <div class="apple-container">
-    <h2 class="apple-headline" style="color: white; margin-bottom: 20px;">
+<section id="notify" class="section-lg section-black">
+  <div class="container text-center">
+    <span class="label" style="color: var(--color-medium-gray);">Be First</span>
+    <h2 class="headline-lg mb-4" style="color: var(--color-white);">
       Your smile will thank you.
     </h2>
-    <p style="font-size: 24px; color: var(--apple-gray-light); margin-bottom: 40px;">
-      Get PickPod today and transform your dental care routine.
+    <p class="body-lg mb-6" style="color: rgba(255,255,255,0.5); max-width: 500px; margin-left: auto; margin-right: auto;">
+      Join the waitlist and be the first to know when PickPod launches.
     </p>
-    <form style="max-width: 500px; margin: 0 auto;">
-      <input
-        type="email"
-        placeholder="Enter your email"
-        style="width: 100%; padding: 16px; border-radius: 12px; border: none; font-size: 17px; margin-bottom: 16px;"
-      />
-      <button type="submit" class="apple-button" style="width: 100%; background: var(--apple-mint);">
-        Notify Me When Available
+    <form style="max-width: 400px; margin: 0 auto;">
+      <div class="form-group">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="form-input form-input-dark"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%;">
+        Notify Me
       </button>
     </form>
-    <p style="font-size: 14px; color: var(--apple-gray); margin-top: 20px;">
-      Be the first to know when PickPod launches.
+    <p class="body-sm mt-4" style="color: var(--color-medium-gray);">
+      No spam. Unsubscribe anytime.
     </p>
   </div>
 </section>
 
 <!-- Footer -->
-<footer style="background: var(--apple-gray-light); padding: 40px 0; text-align: center;">
-  <div class="apple-container">
-    <p style="font-size: 14px; color: var(--apple-gray); margin-bottom: 16px;">
-      Follow us
-    </p>
-    <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
-      <a href="#" style="color: var(--apple-dark);">Instagram</a>
-      <a href="#" style="color: var(--apple-dark);">Twitter</a>
-      <a href="#" style="color: var(--apple-dark);">Facebook</a>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">PickPod</div>
+        <p class="body-sm text-muted" style="max-width: 280px;">
+          The dual-chamber car floss pick dispenser designed for busy professionals.
+        </p>
+      </div>
+      <div>
+        <span class="label">Navigation</span>
+        <ul class="footer-links">
+          <li><a href="#product">Product</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">Social</span>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">Contact</span>
+        <ul class="footer-links">
+          <li><a href="mailto:hello@pickpod.com">hello@pickpod.com</a></li>
+        </ul>
+      </div>
     </div>
-    <p style="font-size: 12px; color: var(--apple-gray);">
-      © 2024 PickPod. All rights reserved.
-    </p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 PickPod. All rights reserved.</p>
+      <p>Designed with care.</p>
+    </div>
   </div>
 </footer>
+
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 100) {
+      nav.classList.add('nav-scrolled');
+    } else {
+      nav.classList.remove('nav-scrolled');
+    }
+  });
+</script>

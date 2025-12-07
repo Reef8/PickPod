@@ -1,85 +1,151 @@
 <!-- Navigation -->
-<nav class="apple-nav">
-  <div class="apple-container">
-    <div class="container">
-      <h1 style="font-weight: 600; font-size: 18px;"><a href="/" style="text-decoration: none; color: inherit;">PickPod</a></h1>
-      <ul class="apple-nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-      </ul>
-    </div>
+<nav class="nav nav-scrolled" id="navbar">
+  <div class="container">
+    <a href="/" class="nav-logo">PickPod</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/#notify">Pre-Order</a></li>
+    </ul>
   </div>
 </nav>
 
-<!-- About Hero Section -->
-<section class="hero" style="min-height: 60vh;">
-  <div class="apple-container" style="padding: 60px 20px;">
-    <h1 class="apple-headline" style="margin-bottom: 24px;">
+<!-- Hero Section -->
+<section class="section-lg" style="padding-top: 12rem; background: var(--color-light-gray);">
+  <div class="container text-center">
+    <span class="label">Our Story</span>
+    <h1 class="headline-xl mb-4">
       Born from necessity.
     </h1>
-    <p class="apple-subheadline" style="margin-bottom: 0;">
+    <div class="divider divider-center"></div>
+    <p class="subheadline" style="max-width: 600px; margin: 0 auto;">
       The story behind PickPod
     </p>
   </div>
 </section>
 
 <!-- Story Section -->
-<section class="apple-section" style="background: white;">
-  <div class="apple-container">
-    <div style="max-width: 800px; margin: 0 auto;">
-      <p class="apple-body" style="margin-bottom: 32px; font-size: 21px; line-height: 1.8;">
-        PickPod was created by Salim Khan after discovering a common yet overlooked challenge: the only time available for flossing was during his commute.
-      </p>
-      <p class="apple-body" style="margin-bottom: 32px; font-size: 19px; line-height: 1.8; color: var(--apple-gray);">
-        After months of dealing with cluttered cup holders filled with used floss picks, he recognized an opportunity for innovation. What started as a personal frustration became a mission to help busy professionals maintain their dental health without compromise.
-      </p>
-      <p class="apple-body" style="font-size: 19px; line-height: 1.8; color: var(--apple-gray);">
-        The result is PickPod—a thoughtfully designed solution for individuals who prioritize dental health but lack traditional flossing time. With dedicated compartments for fresh and used picks, PickPod brings organization and convenience to on-the-go oral care, ensuring you never have to choose between your schedule and your dentist's recommendations.
-      </p>
+<section class="section">
+  <div class="container-narrow">
+    <div class="mb-6">
+      <span class="label">The Beginning</span>
+      <h2 class="headline-md mb-4">A common problem, overlooked.</h2>
+      <div class="divider"></div>
     </div>
+    <p class="body-lg mb-5">
+      PickPod was created by Salim Khan after discovering a common yet overlooked challenge: the only time available for flossing was during his commute.
+    </p>
+    <p class="body-lg text-muted mb-5">
+      After months of dealing with cluttered cup holders filled with used floss picks, he recognized an opportunity for innovation. What started as a personal frustration became a mission to help busy professionals maintain their dental health without compromise.
+    </p>
+    <p class="body-lg text-muted">
+      The result is PickPod—a thoughtfully designed solution for individuals who prioritize dental health but lack traditional flossing time. With dedicated compartments for fresh and used picks, PickPod brings organization and convenience to on-the-go oral care.
+    </p>
   </div>
 </section>
 
 <!-- Mission Section -->
-<section class="apple-section" style="background: var(--apple-gray-light);">
-  <div class="apple-container">
-    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-      <h2 class="apple-headline" style="font-size: 40px; margin-bottom: 32px;">
-        Our Mission
-      </h2>
-      <p class="apple-body" style="font-size: 19px; line-height: 1.8; color: var(--apple-gray);">
-        To make dental hygiene accessible and convenient for everyone, regardless of how busy life gets. Because maintaining a healthy smile shouldn't require sacrificing your daily routine.
+<section class="split" style="min-height: 60vh;">
+  <div class="split-content" style="background: var(--color-dark); color: var(--color-white);">
+    <span class="label" style="color: var(--color-medium-gray);">Our Mission</span>
+    <h2 class="headline-md mb-4">
+      Dental care,<br>redefined.
+    </h2>
+    <div class="divider"></div>
+    <p class="body-lg" style="color: rgba(255,255,255,0.7);">
+      To make dental hygiene accessible and convenient for everyone, regardless of how busy life gets.
+    </p>
+    <p class="body-base mt-4" style="color: rgba(255,255,255,0.5);">
+      Because maintaining a healthy smile shouldn't require sacrificing your daily routine.
+    </p>
+  </div>
+  <div class="split-image" style="background: var(--color-light-gray);">
+    <img src="/images/pickpod-product.png" alt="PickPod Product" style="object-fit: contain; padding: 4rem;">
+  </div>
+</section>
+
+<!-- Values Section -->
+<section class="section-light">
+  <div class="container text-center mb-6">
+    <span class="label">What We Believe</span>
+    <h2 class="headline-lg">Our Values</h2>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-item">
+      <span class="feature-number">01</span>
+      <h3 class="feature-title">Simplicity</h3>
+      <p class="body-sm text-muted">
+        The best solutions are elegant in their simplicity. No complexity, just function.
+      </p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-number">02</span>
+      <h3 class="feature-title">Quality</h3>
+      <p class="body-sm text-muted">
+        Every detail matters. We obsess over materials, finish, and user experience.
+      </p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-number">03</span>
+      <h3 class="feature-title">Accessibility</h3>
+      <p class="body-sm text-muted">
+        Health shouldn't be complicated. We make dental care fit your lifestyle.
       </p>
     </div>
   </div>
 </section>
 
 <!-- CTA Section -->
-<section class="apple-section" style="background: var(--apple-dark); color: white; text-align: center;">
-  <div class="apple-container">
-    <h2 class="apple-headline" style="color: white; margin-bottom: 20px;">
+<section class="section-lg section-black">
+  <div class="container text-center">
+    <span class="label" style="color: var(--color-medium-gray);">Get Started</span>
+    <h2 class="headline-lg mb-4" style="color: var(--color-white);">
       Ready to transform your routine?
     </h2>
-    <p style="font-size: 24px; color: var(--apple-gray-light); margin-bottom: 40px;">
+    <p class="body-lg mb-6" style="color: rgba(255,255,255,0.5); max-width: 500px; margin-left: auto; margin-right: auto;">
       Join the movement toward convenient, on-the-go dental care.
     </p>
-    <a href="/" class="apple-button">Explore PickPod</a>
+    <a href="/" class="btn btn-primary">Explore PickPod</a>
   </div>
 </section>
 
 <!-- Footer -->
-<footer style="background: var(--apple-gray-light); padding: 40px 0; text-align: center;">
-  <div class="apple-container">
-    <p style="font-size: 14px; color: var(--apple-gray); margin-bottom: 16px;">
-      Follow us
-    </p>
-    <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
-      <a href="#" style="color: var(--apple-dark);">Instagram</a>
-      <a href="#" style="color: var(--apple-dark);">Twitter</a>
-      <a href="#" style="color: var(--apple-dark);">Facebook</a>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">PickPod</div>
+        <p class="body-sm text-muted" style="max-width: 280px;">
+          The dual-chamber car floss pick dispenser designed for busy professionals.
+        </p>
+      </div>
+      <div>
+        <span class="label">Navigation</span>
+        <ul class="footer-links">
+          <li><a href="/#product">Product</a></li>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">Social</span>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">Contact</span>
+        <ul class="footer-links">
+          <li><a href="mailto:hello@pickpod.com">hello@pickpod.com</a></li>
+        </ul>
+      </div>
     </div>
-    <p style="font-size: 12px; color: var(--apple-gray);">
-      © 2024 PickPod. All rights reserved.
-    </p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 PickPod. All rights reserved.</p>
+      <p>Designed with care.</p>
+    </div>
   </div>
 </footer>
