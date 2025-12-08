@@ -943,3 +943,109 @@ body {
     margin-right: auto;
   }
 }
+
+/* Social Proof Banner */
+.social-proof-banner {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 9998;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: 1rem 1.25rem;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-base);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.social-proof-banner.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.social-proof-banner.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.social-proof-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--color-accent-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-proof-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-accent);
+}
+
+.social-proof-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.social-proof-text {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-dark);
+  line-height: 1.4;
+}
+
+.social-proof-text strong {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.social-proof-time {
+  font-size: var(--text-xs);
+  color: var(--color-medium-gray);
+  margin-top: 0.125rem;
+}
+
+.social-proof-close {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-medium-gray);
+  transition: all var(--transition-fast);
+}
+
+.social-proof-close:hover {
+  background: var(--color-light-gray);
+  color: var(--color-dark);
+}
+
+.social-proof-close svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+/* Responsive adjustments for social proof */
+@media (max-width: 768px) {
+  .social-proof-banner {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    max-width: none;
+  }
+}
