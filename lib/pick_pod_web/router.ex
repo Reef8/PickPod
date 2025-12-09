@@ -19,6 +19,7 @@ defmodule PickPodWeb.Router do
 
     get "/", PageController, :home
     get "/about", PageController, :about
+    get "/testimonials", PageController, :testimonials
   end
 
   # Other scopes may use custom stacks.
