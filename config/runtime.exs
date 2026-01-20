@@ -5,8 +5,10 @@ if config_env() == :dev do
   Dotenvy.source([".env"])
 end
 
-# Resend API key for email sending
-config :pick_pod, :resend_api_key, System.get_env("RESEND_API_KEY")
+# Configure Resend client (only if env var is set)
+if api_key = System.get_env("RESEND_API_KEY") do
+  config :resend, Resend.Client, api_key: api_key
+end
 
 # config/runtime.exs is executed for all environments, including
 # during releases. It is executed after compilation and before the

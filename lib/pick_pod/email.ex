@@ -3,33 +3,15 @@ defmodule PickPod.Email do
   Email sending module using Resend API.
   """
 
-  @resend_api_url "https://api.resend.com/emails"
-
   def send_welcome_email(to_email) do
-    api_key = Application.get_env(:pick_pod, :resend_api_key)
+    client = Resend.client()
 
-    body = %{
-      from: "PickPod <hello@pickpod.com>",
+    Resend.Emails.send(client, %{
+      from: "PickPod <onboarding@resend.dev>",
       to: [to_email],
       subject: "Welcome to the PickPod Waitlist!",
       html: welcome_email_html()
-    }
-
-    headers = [
-      {"Authorization", "Bearer #{api_key}"},
-      {"Content-Type", "application/json"}
-    ]
-
-    case Req.post(@resend_api_url, json: body, headers: headers) do
-      {:ok, %{status: status}} when status in 200..299 ->
-        {:ok, :sent}
-
-      {:ok, %{status: status, body: body}} ->
-        {:error, "Failed to send email: #{status} - #{inspect(body)}"}
-
-      {:error, reason} ->
-        {:error, "Request failed: #{inspect(reason)}"}
-    end
+    })
   end
 
   defp welcome_email_html do
