@@ -5,10 +5,6 @@ defmodule PickPodWeb.PageController do
     render(conn, :home)
   end
 
-  def about(conn, _params) do
-    render(conn, :about)
-  end
-
   def testimonials(conn, _params) do
     render(conn, :testimonials)
   end

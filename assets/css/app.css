@@ -858,6 +858,18 @@ body {
 
 /* Responsive - Apple-Style */
 @media (max-width: 1024px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
   .hero-split {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -887,11 +899,6 @@ body {
   .feature-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
   }
 
   .signup-form {
@@ -1150,13 +1157,13 @@ body {
 }
 
 /* Responsive testimonials */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
@@ -1414,18 +1421,42 @@ body {
   }
 }
 
+/* Hero Signup - Centered Below Image */
+.hero-signup-centered {
+  margin-top: 3rem;
+  padding: 1.5rem 2rem;
+  background: var(--color-light-gray);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-signup-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+}
+
+.hero-signup-centered .signup-form {
+  max-width: 100%;
+  justify-content: center;
+}
+
 /* Hero Testimonials Strip */
 .hero-testimonials {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 1.5rem;
   margin-top: 2.5rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .hero-testimonial-item {
-  text-align: left;
+  text-align: center;
 }
 
 .hero-testimonial-stars {
@@ -1449,20 +1480,24 @@ body {
   font-weight: 500;
 }
 
-/* Responsive hero testimonials */
-@media (max-width: 1024px) {
+/* Responsive hero signup */
+@media (max-width: 900px) {
+  .hero-signup-centered {
+    max-width: 100%;
+  }
+
   .hero-testimonials {
     grid-template-columns: 1fr;
     gap: 1.25rem;
-    text-align: center;
-  }
-
-  .hero-testimonial-item {
-    text-align: center;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+  .hero-signup-centered {
+    padding: 1.25rem 1.5rem;
+    margin-top: 2rem;
+  }
+
   .hero-testimonials {
     margin-top: 2rem;
     padding-top: 1.5rem;

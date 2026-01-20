@@ -18,7 +18,6 @@ defmodule PickPodWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-    get "/about", PageController, :about
     get "/testimonials", PageController, :testimonials
   end
 
