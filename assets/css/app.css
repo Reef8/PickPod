@@ -1443,6 +1443,18 @@ body {
 .hero-signup-centered .signup-form {
   max-width: 100%;
   justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-signup-centered .signup-form .form-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.hero-signup-centered .signup-form .form-input {
+  width: 100%;
 }
 
 /* Hero Testimonials Strip */
@@ -1502,4 +1514,40 @@ body {
     margin-top: 2rem;
     padding-top: 1.5rem;
   }
+}
+
+/* Form Field Wrapper */
+.form-field {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+
+/* Form States */
+.form-input-error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+}
+
+.form-input:invalid:not(:placeholder-shown) {
+  border-color: #dc3545;
+}
+
+.form-error {
+  color: #dc3545;
+  font-size: var(--text-xs);
+  margin-top: 0.375rem;
+  text-align: center;
+}
+
+.signup-success {
+  padding: 1rem 1.5rem;
+  background: #d4edda;
+  border-radius: var(--radius-md);
+  color: #155724;
+  font-weight: 500;
+}
+
+.signup-success p {
+  margin: 0;
 }

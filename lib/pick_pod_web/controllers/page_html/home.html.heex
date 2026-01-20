@@ -28,17 +28,30 @@
     <!-- Signup Section - Centered Below Hero -->
     <div class="hero-signup-centered animate-fade-up animated delay-300">
       <p class="hero-signup-label">Join 2,000+ on the waitlist</p>
-      <form class="signup-form">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          class="form-input"
-          required
-        />
-        <button type="submit" class="btn btn-primary btn-lg">
-          Notify Me
-        </button>
-      </form>
+      <%= if @form_status == :success do %>
+        <div class="signup-success">
+          <p>You're on the list! Check your email for confirmation.</p>
+        </div>
+      <% else %>
+        <.form for={@changeset} action={~p"/subscribe"} class="signup-form" id="hero-signup-form">
+          <div class="form-field">
+            <input
+              type="email"
+              name="waitlist_email[email]"
+              value={@changeset.changes[:email] || ""}
+              placeholder="Enter your email"
+              required
+              class={"form-input #{if Keyword.get(@changeset.errors, :email), do: "form-input-error"}"}
+            />
+            <%= if error = Keyword.get(@changeset.errors, :email) do %>
+              <p class="form-error"><%= elem(error, 0) %></p>
+            <% end %>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">
+            Notify Me
+          </button>
+        </.form>
+      <% end %>
     </div>
     <!-- Mini Testimonials Strip -->
     <div class="hero-testimonials animate-fade-up animated delay-400">
@@ -403,17 +416,30 @@
       <p class="body-lg text-muted mb-5" style="max-width: 500px; margin-left: auto; margin-right: auto;">
         Join the waitlist and be the first to know when PickPod launches.
       </p>
-      <form class="signup-form">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          class="form-input"
-          required
-        />
-        <button type="submit" class="btn btn-primary btn-lg">
-          Notify Me
-        </button>
-      </form>
+<%= if @form_status == :success do %>
+        <div class="signup-success">
+          <p>You're on the list! Check your email for confirmation.</p>
+        </div>
+      <% else %>
+        <.form for={@changeset} action={~p"/subscribe"} class="signup-form" id="cta-signup-form">
+          <div class="form-field">
+            <input
+              type="email"
+              name="waitlist_email[email]"
+              value={@changeset.changes[:email] || ""}
+              placeholder="Enter your email"
+              required
+              class={"form-input #{if Keyword.get(@changeset.errors, :email), do: "form-input-error"}"}
+            />
+            <%= if error = Keyword.get(@changeset.errors, :email) do %>
+              <p class="form-error"><%= elem(error, 0) %></p>
+            <% end %>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">
+            Notify Me
+          </button>
+        </.form>
+      <% end %>
       <p class="body-sm text-muted mt-4">
         No spam. Unsubscribe anytime.
       </p>

@@ -1,5 +1,13 @@
 import Config
 
+# Load environment variables from .env file in development
+if config_env() == :dev do
+  Dotenvy.source([".env"])
+end
+
+# Resend API key for email sending
+config :pick_pod, :resend_api_key, System.get_env("RESEND_API_KEY")
+
 # config/runtime.exs is executed for all environments, including
 # during releases. It is executed after compilation and before the
 # system starts, so it is typically used to load production configuration
