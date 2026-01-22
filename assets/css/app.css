@@ -420,7 +420,7 @@ body {
 
 /* Hero Section - Apple-Style Spacious */
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -428,7 +428,8 @@ body {
   background: var(--color-white);
   color: var(--color-dark);
   overflow: hidden;
-  padding-top: 6rem;
+  padding-top: 1rem;
+  padding-bottom: 0;
 }
 
 .hero-content {
@@ -586,7 +587,7 @@ body {
 /* Feature Grid - Apple-Style Cards */
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
@@ -1423,7 +1424,7 @@ body {
 
 /* Hero Signup - Centered Below Image */
 .hero-signup-centered {
-  margin-top: 3rem;
+  margin-top: -51px;
   padding: 1.5rem 2rem;
   background: var(--color-light-gray);
   border-radius: var(--radius-xl);
