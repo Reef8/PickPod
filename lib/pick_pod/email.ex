@@ -7,7 +7,7 @@ defmodule PickPod.Email do
     client = Resend.client()
 
     Resend.Emails.send(client, %{
-      from: "PickPod <onboarding@resend.dev>",
+      from: "PickPod <hello@pickpod.com>",
       to: [to_email],
       subject: "Welcome to the PickPod Waitlist!",
       html: welcome_email_html()
