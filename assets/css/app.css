@@ -136,9 +136,9 @@
   --text-6xl: 6rem;
 
   /* Spacing - More generous for Apple feel */
-  --section-padding-sm: 5rem;
-  --section-padding: 8rem;
-  --section-padding-lg: 10rem;
+  --section-padding-sm: 3rem;
+  --section-padding: 4rem;
+  --section-padding-lg: 5rem;
   --container-max: 1120px;
   --container-narrow: 680px;
 
