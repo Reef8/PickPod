@@ -2,4 +2,5 @@
 set -eu
 
 cd -P -- "$(dirname -- "$0")"
+./pick_pod eval PickPod.Release.migrate
 PHX_SERVER=true exec ./pick_pod start
