@@ -1552,3 +1552,349 @@ body {
 .signup-success p {
   margin: 0;
 }
+
+/* Marketing navigation state */
+.nav-links a[aria-current="page"] {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Homepage lifestyle story */
+.lifestyle-section {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+
+.lifestyle-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  align-items: end;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+.lifestyle-heading .headline-lg {
+  color: var(--color-white);
+  max-width: 650px;
+}
+
+.lifestyle-heading .body-lg {
+  color: rgba(255, 255, 255, 0.66);
+  max-width: 480px;
+}
+
+.lifestyle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.lifestyle-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.06);
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.lifestyle-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.lifestyle-image-wrap {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.lifestyle-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.lifestyle-card:hover img {
+  transform: scale(1.035);
+}
+
+.lifestyle-chip {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: rgba(29, 29, 31, 0.78);
+  color: var(--color-white);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  backdrop-filter: blur(12px);
+}
+
+.lifestyle-card-solution .lifestyle-chip {
+  background: rgba(16, 185, 129, 0.9);
+}
+
+.lifestyle-card figcaption {
+  padding: 1.5rem;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+
+.lifestyle-card figcaption strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--color-white);
+  font-size: var(--text-base);
+}
+
+/* About page */
+.about-page {
+  overflow: hidden;
+}
+
+.about-hero {
+  padding: 9.5rem 0 5rem;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(16, 185, 129, 0.12), transparent 35%),
+    var(--color-white);
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 5rem;
+}
+
+.about-hero-copy .body-lg {
+  max-width: 570px;
+}
+
+.about-hero-image {
+  position: relative;
+  margin: 0;
+}
+
+.about-hero-image::before {
+  content: "";
+  position: absolute;
+  inset: 1.25rem -1.25rem -1.25rem 1.25rem;
+  z-index: 0;
+  border-radius: var(--radius-xl);
+  background: var(--color-accent-light);
+}
+
+.about-hero-image img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+}
+
+.about-hero-image figcaption {
+  position: relative;
+  z-index: 2;
+  margin-top: 1rem;
+  color: var(--color-medium-gray);
+  font-size: var(--text-xs);
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  gap: 5rem;
+}
+
+.story-number {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.story-copy {
+  max-width: 710px;
+}
+
+.story-copy p {
+  color: var(--color-dark-gray);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+
+.story-copy .story-emphasis {
+  margin-top: 2rem;
+  color: var(--color-dark);
+  font-weight: 650;
+}
+
+.story-shell {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  gap: 5rem;
+}
+
+.story-heading {
+  align-self: start;
+  position: sticky;
+  top: 8rem;
+}
+
+.story-timeline {
+  position: relative;
+}
+
+.story-timeline::before {
+  content: "";
+  position: absolute;
+  top: 1.6rem;
+  bottom: 1.6rem;
+  left: 1.5rem;
+  width: 1px;
+  background: rgba(29, 29, 31, 0.12);
+}
+
+.story-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.story-step:last-child {
+  padding-bottom: 0;
+}
+
+.story-step-marker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border-radius: var(--radius-full);
+  background: var(--color-pure-white);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.story-step h3 {
+  margin-bottom: 0.7rem;
+  color: var(--color-dark);
+  font-size: var(--text-xl);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.story-step p {
+  color: var(--color-dark-gray);
+  font-size: var(--text-base);
+  line-height: 1.75;
+}
+
+.founder-note-section {
+  background: var(--color-dark);
+}
+
+.founder-note {
+  position: relative;
+  max-width: 880px;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.founder-note-mark {
+  display: block;
+  height: 4.5rem;
+  color: var(--color-accent);
+  font-family: Georgia, serif;
+  font-size: 7rem;
+  line-height: 1;
+}
+
+.founder-note blockquote {
+  color: var(--color-white);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.035em;
+}
+
+.founder-note p {
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.about-cta-section {
+  background: var(--color-white);
+}
+
+.about-cta {
+  padding: 4rem 2rem;
+  border-radius: var(--radius-2xl);
+  background: var(--color-accent-light);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .lifestyle-heading,
+  .about-hero-grid,
+  .about-intro-grid,
+  .story-shell {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-hero-copy {
+    text-align: center;
+  }
+
+  .about-hero-copy .body-lg {
+    margin-inline: auto;
+  }
+
+  .story-heading {
+    position: static;
+  }
+}
+
+@media (max-width: 700px) {
+  .lifestyle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero {
+    padding: 7.5rem 0 4rem;
+  }
+
+  .about-hero-image::before {
+    inset: 0.75rem -0.5rem -0.75rem 0.5rem;
+  }
+
+  .story-copy p {
+    font-size: 1.25rem;
+  }
+
+  .story-step {
+    gap: 1rem;
+  }
+
+  .about-cta {
+    padding: 3rem 1.25rem;
+  }
+}

@@ -6,8 +6,15 @@ defmodule PickPodWeb.PageController do
 
   def home(conn, _params) do
     changeset = Waitlist.change_waitlist_email()
-    form_status = if Phoenix.Flash.get(conn.assigns.flash, :info) == "success", do: :success, else: nil
-    render(conn, :home, changeset: changeset, form_status: form_status)
+
+    form_status =
+      if Phoenix.Flash.get(conn.assigns.flash, :info) == "success", do: :success, else: nil
+
+    render(conn, :home, form: Phoenix.Component.to_form(changeset), form_status: form_status)
+  end
+
+  def about(conn, _params) do
+    render(conn, :about)
   end
 
   def testimonials(conn, _params) do
@@ -25,7 +32,7 @@ defmodule PickPodWeb.PageController do
         |> redirect(to: ~p"/")
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, :home, changeset: changeset, form_status: :error)
+        render(conn, :home, form: Phoenix.Component.to_form(changeset), form_status: :error)
     end
   end
 end

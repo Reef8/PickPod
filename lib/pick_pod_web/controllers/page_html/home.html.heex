@@ -1,17 +1,6 @@
-<!-- Navigation -->
-<nav class="nav" id="navbar">
-  <div class="container">
-    <a href="/" class="nav-logo">PickPod</a>
-    <ul class="nav-links">
-      <li><a href="#product">Product</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="/testimonials">Testimonials</a></li>
-    </ul>
-    <a href="#notify" class="nav-cta">Get Notified</a>
-  </div>
-</nav>
+<.site_nav active={:home} />
 
-<!-- Hero Section -->
+<%!-- Hero Section --%>
 <section class="hero">
   <div class="container">
     <div class="hero-split">
@@ -25,10 +14,10 @@
         </p>
       </div>
       <div class="hero-image animate-scale-in animated delay-200">
-        <img src="/images/pickpod3.PNG" alt="PickPod Product">
+        <img src="/images/pickpod3.PNG" alt="PickPod Product" />
       </div>
     </div>
-    <!-- Signup Section - Centered Below Hero -->
+    <%!-- Signup Section - Centered Below Hero --%>
     <div class="hero-signup-centered animate-fade-up animated delay-300">
       <p class="hero-signup-label">Join 2,000+ on the waitlist</p>
       <%= if @form_status == :success do %>
@@ -36,19 +25,16 @@
           <p>You're on the list! Check your email for confirmation.</p>
         </div>
       <% else %>
-        <.form for={@changeset} action={~p"/subscribe"} class="signup-form" id="hero-signup-form">
+        <.form for={@form} action={~p"/subscribe"} class="signup-form" id="hero-signup-form">
           <div class="form-field">
-            <input
+            <.input
+              field={@form[:email]}
               type="email"
-              name="waitlist_email[email]"
-              value={@changeset.changes[:email] || ""}
               placeholder="Enter your email"
               required
-              class={"form-input #{if Keyword.get(@changeset.errors, :email), do: "form-input-error"}"}
+              class="form-input"
+              error_class="form-input-error"
             />
-            <%= if error = Keyword.get(@changeset.errors, :email) do %>
-              <p class="form-error"><%= elem(error, 0) %></p>
-            <% end %>
           </div>
           <button type="submit" class="btn btn-primary btn-lg">
             Notify Me
@@ -56,11 +42,13 @@
         </.form>
       <% end %>
     </div>
-    <!-- Mini Testimonials Strip -->
+    <%!-- Mini Testimonials Strip --%>
     <div class="hero-testimonials animate-fade-up animated delay-400">
       <div class="hero-testimonial-item">
         <div class="hero-testimonial-stars">★★★★★</div>
-        <p class="hero-testimonial-text">"Finally, a solution for my messy car flossing habit!"</p>
+        <p class="hero-testimonial-text">
+          "Finally, a solution for my messy car flossing habit!"
+        </p>
         <span class="hero-testimonial-author">— Sarah K., NYC</span>
       </div>
       <div class="hero-testimonial-item">
@@ -70,17 +58,17 @@
       </div>
       <div class="hero-testimonial-item">
         <div class="hero-testimonial-stars">★★★★★</div>
-        <p class="hero-testimonial-text">"No more hurting gums!"</p>
+        <p class="hero-testimonial-text">"PickPod helped me turn flossing into a daily habit."</p>
         <span class="hero-testimonial-author">— Emma R., Chicago</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Problem Section -->
+<%!-- Problem Section --%>
 <section id="product" class="section">
   <div class="container text-center">
-    <span class="label animate-on-scroll">The Problem</span>
+    <span class="label animate-on-scroll">Glovebox Graveyards</span>
     <h2 class="headline-lg mb-4 animate-on-scroll">
       The flossing problem everyone ignores.
     </h2>
@@ -90,12 +78,61 @@
   </div>
 </section>
 
-<!-- Solution Section -->
+<%!-- Lifestyle Story --%>
+<section id="lifestyle" class="section lifestyle-section">
+  <div class="container">
+    <div class="lifestyle-heading">
+      <div>
+        <span class="label animate-on-scroll">From scattered to sorted</span>
+        <h2 class="headline-lg animate-on-scroll">A cleaner place for every pick.</h2>
+      </div>
+      <p class="body-lg text-muted animate-on-scroll">
+        Fresh picks stay within reach. Used picks stay contained until it is time to empty the pod.
+      </p>
+    </div>
+    <div class="lifestyle-grid animate-stagger">
+      <figure class="lifestyle-card lifestyle-card-problem animate-fade-up">
+        <div class="lifestyle-image-wrap">
+          <img
+            src={~p"/images/glovebox-graveyard.webp"}
+            alt="Loose floss picks scattered across car cupholders and a center-console pocket"
+            loading="lazy"
+            width="1440"
+            height="960"
+          />
+          <span class="lifestyle-chip">Before</span>
+        </div>
+        <figcaption>
+          <strong>Glovebox graveyards.</strong>
+          Cupholders, door pockets, and consoles were never meant to be disposal bins.
+        </figcaption>
+      </figure>
+      <figure class="lifestyle-card lifestyle-card-solution animate-fade-up">
+        <div class="lifestyle-image-wrap">
+          <img
+            src={~p"/images/pickpod-in-car.webp"}
+            alt="A hand taking a clean floss pick from PickPod in a parked car cupholder"
+            loading="lazy"
+            width="1440"
+            height="960"
+          />
+          <span class="lifestyle-chip">After</span>
+        </div>
+        <figcaption>
+          <strong>One simple routine.</strong>
+          Keep clean picks ready, then tuck used ones out of sight in the second chamber.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<%!-- Solution Section --%>
 <section class="section-light section">
   <div class="container">
     <div class="hero-split" style="gap: 5rem;">
       <div class="hero-image animate-slide-left">
-        <img src="/images/pickpod3.PNG" alt="PickPod Product" style="max-width: 400px;">
+        <img src="/images/pickpod3.PNG" alt="PickPod Product" style="max-width: 400px;" />
       </div>
       <div>
         <span class="label animate-on-scroll">The Solution</span>
@@ -115,7 +152,7 @@
   </div>
 </section>
 
-<!-- Features Section -->
+<%!-- Features Section --%>
 <section id="features" class="section">
   <div class="container">
     <div class="text-center mb-6">
@@ -155,30 +192,44 @@
   </div>
 </section>
 
-
-<!-- How It Works -->
+<%!-- How It Works --%>
 <section class="section">
   <div class="container">
     <div class="hero-split" style="gap: 5rem;">
       <div>
         <span class="label animate-on-scroll">How It Works</span>
-        <h2 class="headline-md mb-4 animate-on-scroll">Simple by design.</h2>
+        <h2 class="headline-md mb-3 animate-on-scroll">Grab. Floss. Toss.</h2>
+        <p class="body-lg text-muted mb-4 animate-on-scroll">
+          A daily habit, simplified into three small steps.
+        </p>
         <div class="divider animate-on-scroll"></div>
         <div class="mb-4">
-          <p class="body-base mb-3 animate-on-scroll"><strong class="text-accent">1.</strong> Place PickPod in your cup holder</p>
-          <p class="body-base mb-3 animate-on-scroll"><strong class="text-accent">2.</strong> Fill the fresh chamber with floss picks</p>
-          <p class="body-base mb-3 animate-on-scroll"><strong class="text-accent">3.</strong> Use and dispose in the used chamber</p>
-          <p class="body-base animate-on-scroll"><strong class="text-accent">4.</strong> Empty and refill as needed</p>
+          <p class="body-base mb-3 animate-on-scroll">
+            <strong class="text-accent">1.</strong> Place PickPod in your cup holder
+          </p>
+          <p class="body-base mb-3 animate-on-scroll">
+            <strong class="text-accent">2.</strong> Fill the fresh chamber with floss picks
+          </p>
+          <p class="body-base mb-3 animate-on-scroll">
+            <strong class="text-accent">3.</strong> Use and dispose in the used chamber
+          </p>
+          <p class="body-base animate-on-scroll">
+            <strong class="text-accent">4.</strong> Empty and refill as needed
+          </p>
         </div>
       </div>
       <div class="hero-image animate-slide-right">
-        <img src="/images/pickpod3.PNG" alt="How to use PickPod" style="max-width: 100%; border-radius: var(--radius-lg);">
+        <img
+          src="/images/pickpod3.PNG"
+          alt="How to use PickPod"
+          style="max-width: 100%; border-radius: var(--radius-lg);"
+        />
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA Section -->
+<%!-- CTA Section --%>
 <section id="notify" class="section">
   <div class="container">
     <div class="signup-box animate-scale-in">
@@ -186,27 +237,27 @@
       <h2 class="headline-md mb-3">
         Your smile will thank you.
       </h2>
-      <p class="body-lg text-muted mb-5" style="max-width: 500px; margin-left: auto; margin-right: auto;">
+      <p
+        class="body-lg text-muted mb-5"
+        style="max-width: 500px; margin-left: auto; margin-right: auto;"
+      >
         Join the waitlist and be the first to know when PickPod launches.
       </p>
-<%= if @form_status == :success do %>
+      <%= if @form_status == :success do %>
         <div class="signup-success">
           <p>You're on the list! Check your email for confirmation.</p>
         </div>
       <% else %>
-        <.form for={@changeset} action={~p"/subscribe"} class="signup-form" id="cta-signup-form">
+        <.form for={@form} action={~p"/subscribe"} class="signup-form" id="cta-signup-form">
           <div class="form-field">
-            <input
+            <.input
+              field={@form[:email]}
               type="email"
-              name="waitlist_email[email]"
-              value={@changeset.changes[:email] || ""}
               placeholder="Enter your email"
               required
-              class={"form-input #{if Keyword.get(@changeset.errors, :email), do: "form-input-error"}"}
+              class="form-input"
+              error_class="form-input-error"
             />
-            <%= if error = Keyword.get(@changeset.errors, :email) do %>
-              <p class="form-error"><%= elem(error, 0) %></p>
-            <% end %>
           </div>
           <button type="submit" class="btn btn-primary btn-lg">
             Notify Me
@@ -220,47 +271,9 @@
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">PickPod</div>
-        <p class="footer-description">
-          The dual-chamber car floss pick dispenser designed for busy professionals.
-        </p>
-      </div>
-      <div>
-        <h4 class="footer-heading">Navigation</h4>
-        <ul class="footer-links">
-          <li><a href="#product">Product</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="/testimonials">Testimonials</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="footer-heading">Social</h4>
-        <ul class="footer-links">
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">Facebook</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="footer-heading">Contact</h4>
-        <ul class="footer-links">
-          <li><a href="mailto:hello@pickpod.com">hello@pickpod.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 PickPod. All rights reserved.</p>
-      <p>Designed with care.</p>
-    </div>
-  </div>
-</footer>
+<.site_footer />
 
-<!-- Social Proof Banner -->
+<%!-- Social Proof Banner --%>
 <div id="social-proof-banner" class="social-proof-banner">
   <div class="social-proof-icon">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -273,127 +286,12 @@
   </div>
   <button class="social-proof-close" id="social-proof-close" aria-label="Close notification">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"
+      />
     </svg>
   </button>
 </div>
-
-<script>
-  // Navbar scroll effect
-  window.addEventListener('scroll', function() {
-    const nav = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-      nav.classList.add('nav-scrolled');
-    } else {
-      nav.classList.remove('nav-scrolled');
-    }
-  });
-
-  // Social Proof Banner - Fake customer data
-  (function() {
-    const customers = [
-      { name: "Sarah", city: "New York", timeAgo: "2 min ago" },
-      { name: "Michael", city: "Los Angeles", timeAgo: "5 min ago" },
-      { name: "Emma", city: "Chicago", timeAgo: "8 min ago" },
-      { name: "James", city: "Houston", timeAgo: "12 min ago" },
-      { name: "Olivia", city: "Phoenix", timeAgo: "15 min ago" },
-      { name: "William", city: "Philadelphia", timeAgo: "18 min ago" },
-      { name: "Sophia", city: "San Antonio", timeAgo: "22 min ago" },
-      { name: "Benjamin", city: "San Diego", timeAgo: "25 min ago" },
-      { name: "Isabella", city: "Dallas", timeAgo: "28 min ago" },
-      { name: "Lucas", city: "Austin", timeAgo: "32 min ago" },
-      { name: "Mia", city: "Seattle", timeAgo: "35 min ago" },
-      { name: "Henry", city: "Denver", timeAgo: "38 min ago" },
-      { name: "Charlotte", city: "Boston", timeAgo: "42 min ago" },
-      { name: "Alexander", city: "Miami", timeAgo: "45 min ago" },
-      { name: "Amelia", city: "Atlanta", timeAgo: "48 min ago" }
-    ];
-
-    const banner = document.getElementById('social-proof-banner');
-    const textEl = document.getElementById('social-proof-text');
-    const timeEl = document.getElementById('social-proof-time');
-    const closeBtn = document.getElementById('social-proof-close');
-
-    let currentIndex = 0;
-    let isVisible = false;
-    let isClosed = false;
-    let intervalId = null;
-
-    function showBanner() {
-      if (isClosed) return;
-
-      const customer = customers[currentIndex];
-      textEl.innerHTML = `<strong>${customer.name}</strong> from ${customer.city} joined the waitlist`;
-      timeEl.textContent = customer.timeAgo;
-
-      banner.classList.add('visible');
-      banner.classList.remove('hidden');
-      isVisible = true;
-    }
-
-    function hideBanner() {
-      banner.classList.remove('visible');
-      banner.classList.add('hidden');
-      isVisible = false;
-    }
-
-    function nextCustomer() {
-      if (isClosed) return;
-
-      if (isVisible) {
-        hideBanner();
-        setTimeout(() => {
-          currentIndex = (currentIndex + 1) % customers.length;
-          showBanner();
-        }, 500);
-      } else {
-        showBanner();
-      }
-    }
-
-    // Close button functionality
-    closeBtn.addEventListener('click', function() {
-      isClosed = true;
-      hideBanner();
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    });
-
-    // Start after 3 seconds
-    setTimeout(() => {
-      showBanner();
-      // Cycle every 6 seconds
-      intervalId = setInterval(nextCustomer, 6000);
-    }, 3000);
-  })();
-
-  // Scroll Animation Observer
-  (function() {
-    const animatedElements = document.querySelectorAll(
-      '.animate-on-scroll, .animate-fade-up, .animate-fade-in, .animate-slide-left, .animate-slide-right, .animate-scale-in'
-    );
-
-    // Skip elements that already have 'animated' class (hero section)
-    const elementsToObserve = Array.from(animatedElements).filter(
-      el => !el.classList.contains('animated')
-    );
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px 0px -50px 0px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animated');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    elementsToObserve.forEach(el => observer.observe(el));
-  })();
-</script>

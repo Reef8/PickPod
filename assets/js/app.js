@@ -46,6 +46,119 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
+const initSiteNav = () => {
+  const nav = document.querySelector("[data-site-nav]")
+  if (!nav) return
+
+  const updateNav = () => {
+    nav.classList.toggle("nav-scrolled", window.location.pathname !== "/" || window.scrollY > 50)
+  }
+
+  updateNav()
+  window.addEventListener("scroll", updateNav, {passive: true})
+}
+
+const initScrollAnimations = () => {
+  const animatedElements = document.querySelectorAll(
+    ".animate-on-scroll, .animate-fade-up, .animate-fade-in, .animate-slide-left, .animate-slide-right, .animate-scale-in"
+  )
+  const elementsToObserve = Array.from(animatedElements).filter(
+    element => !element.classList.contains("animated")
+  )
+
+  if (!("IntersectionObserver" in window)) {
+    elementsToObserve.forEach(element => element.classList.add("animated"))
+    return
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return
+
+      entry.target.classList.add("animated")
+      observer.unobserve(entry.target)
+    })
+  }, {rootMargin: "0px 0px -50px 0px", threshold: 0.1})
+
+  elementsToObserve.forEach(element => observer.observe(element))
+}
+
+const initSocialProof = () => {
+  const banner = document.getElementById("social-proof-banner")
+  const textElement = document.getElementById("social-proof-text")
+  const timeElement = document.getElementById("social-proof-time")
+  const closeButton = document.getElementById("social-proof-close")
+
+  if (!banner || !textElement || !timeElement || !closeButton) return
+  if (sessionStorage.getItem("pickpod:social-proof-dismissed") === "true") return
+
+  const customers = [
+    {name: "Sarah", city: "New York", timeAgo: "2 min ago"},
+    {name: "Michael", city: "Los Angeles", timeAgo: "5 min ago"},
+    {name: "Emma", city: "Chicago", timeAgo: "8 min ago"},
+    {name: "James", city: "Houston", timeAgo: "12 min ago"},
+    {name: "Olivia", city: "Phoenix", timeAgo: "15 min ago"},
+    {name: "William", city: "Philadelphia", timeAgo: "18 min ago"},
+    {name: "Sophia", city: "San Antonio", timeAgo: "22 min ago"},
+    {name: "Benjamin", city: "San Diego", timeAgo: "25 min ago"}
+  ]
+
+  let currentIndex = 0
+  let displayTimer
+  let cycleTimer
+  let closed = false
+  const initialDelay = 10000
+  const displayDuration = 6000
+  const cycleDelay = 90000 - displayDuration
+
+  const hideBanner = () => {
+    banner.classList.remove("visible")
+    banner.classList.add("hidden")
+  }
+
+  const showBanner = () => {
+    if (closed) return
+
+    const customer = customers[currentIndex]
+    const name = document.createElement("strong")
+    name.textContent = customer.name
+    textElement.replaceChildren(name, ` from ${customer.city} joined the waitlist`)
+    timeElement.textContent = customer.timeAgo
+    banner.classList.add("visible")
+    banner.classList.remove("hidden")
+
+    displayTimer = window.setTimeout(() => {
+      hideBanner()
+      cycleTimer = window.setTimeout(() => {
+        currentIndex = (currentIndex + 1) % customers.length
+        showBanner()
+      }, cycleDelay)
+    }, displayDuration)
+  }
+
+  closeButton.addEventListener("click", () => {
+    closed = true
+    hideBanner()
+    window.clearTimeout(displayTimer)
+    window.clearTimeout(cycleTimer)
+    sessionStorage.setItem("pickpod:social-proof-dismissed", "true")
+  })
+
+  cycleTimer = window.setTimeout(showBanner, initialDelay)
+}
+
+const initMarketingPages = () => {
+  initSiteNav()
+  initScrollAnimations()
+  initSocialProof()
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initMarketingPages, {once: true})
+} else {
+  initMarketingPages()
+}
+
 // The lines below enable quality of life phoenix_live_reload
 // development features:
 //
@@ -80,4 +193,3 @@ if (process.env.NODE_ENV === "development") {
     window.liveReloader = reloader
   })
 }
-

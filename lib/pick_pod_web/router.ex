@@ -19,6 +19,7 @@ defmodule PickPodWeb.Router do
 
     get "/", PageController, :home
     post "/subscribe", PageController, :subscribe
+    get "/about", PageController, :about
     get "/testimonials", PageController, :testimonials
   end
 
